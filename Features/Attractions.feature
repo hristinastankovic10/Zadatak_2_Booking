@@ -9,7 +9,8 @@ Then Type in "Rome" into search field by placeholder "Where are you going?"
   Then Click on start date
   Then Click on end date
   Then Click on Search button by class
-  #Then Browser quit
+  Then Wait
+  Then Browser quit
 
 Examples:
 |rr  |
