@@ -17,7 +17,7 @@ public class MySteps {
     @Given("Navigate to URL {string}")
     public void navigateToURL(String urlPath) throws InterruptedException {
         File file = new File("src/main/resources/chromedriver.exe");
-        System.setProperty("webdriver.chrome.driver",file.getAbsolutePath());
+        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         ChromeOptions options = new ChromeOptions();
         Base.driver = new ChromeDriver(options);
         Base.driver.manage().window().maximize();
@@ -38,7 +38,7 @@ public class MySteps {
         //System.setProperty("webdriver.chrome.driver",file.getAbsolutePath());
         //ChromeOptions options = new ChromeOptions();
         //Base.driver = new ChromeDriver(options);
-        WebElement element = Base.driver.findElement(By.xpath("//*[text()='"+text+"']"));
+        WebElement element = Base.driver.findElement(By.xpath("//*[text()='" + text + "']"));
         ((JavascriptExecutor) Base.driver).executeScript("arguments[0].scrollIntoView(true);", element);
         Thread.sleep(500);
 
@@ -74,14 +74,14 @@ public class MySteps {
 
     @Then("Assert colour of elemnt {string} is {string}")
     public void assertColourOfElemntIs(String text, String color) {
-        WebElement element = Base.driver.findElement(By.xpath("//*[text()='"+text+"']"));
+        WebElement element = Base.driver.findElement(By.xpath("//*[text()='" + text + "']"));
         String value = element.getCssValue("color").toString();
         Assert.assertTrue(value.equals(color));
     }
 
     @Then("Type in {string} into search field by placeholder {string}")
     public void typeInIntoSearchField(String value, String placeholder) {
-        WebElement element = Base.driver.findElement(By.xpath("//*[@placeholder='"+placeholder+"']"));
+        WebElement element = Base.driver.findElement(By.xpath("//*[@placeholder='" + placeholder + "']"));
         element.sendKeys(value);
 
     }
@@ -98,7 +98,7 @@ public class MySteps {
     }
 
     @Then("Click on Button by class {string}")
-    public void clickOnButtonById (String className) {
+    public void clickOnButtonById(String className) {
         //WebElement element = Global.driver.findElement(By.xpath("//*[@id=\":Ra9:\"][1]"));
         //WebElement element = Global.driver.findElement(By.className("e4b761c8b0"));
         //WebElement element = Global.driver.findElement(By.xpath("(//*[@class=\"a5761ae4af\"])[1]"));
@@ -107,7 +107,7 @@ public class MySteps {
         //WebElement element = Global.driver.findElement(By.xpath("(//*[class='"+text+"'])[1]"));
         //WebElement element = Global.driver.findElement(By.cssSelector("(//*[@class='"+text+"'])[1]"));
         //WebElement element = Global.driver.findElement(By.cssSelector("(//*[@class='"+className+"'])[1]"));
-        WebElement element = Base.driver.findElement(By.xpath("(//*[@class='"+className+"'])[1]"));
+        WebElement element = Base.driver.findElement(By.xpath("(//*[@class='" + className + "'])[1]"));
         element.click();
     }
 
@@ -124,7 +124,7 @@ public class MySteps {
     }
 
     @Then("Click on Search button")
-    public void clickOnSearchButton() {
+    public void clickOnSearchButton(String value) {
         WebElement element = Base.driver.findElement(By.xpath("(//*[@class=\"f9cf783bde\"])[4]"));
         //WebElement element = Base.driver.findElement(By.className("fc63351294 a822bdf511 d4b6b7a9e7 cfb238afa1 c938084447 f4605622ad aa11d0d5cd"));
         element.click();
@@ -212,6 +212,29 @@ public class MySteps {
     @Then("Click on Submit button")
     public void clickOnSubmitButton() {
         WebElement element = Base.driver.findElement(By.xpath("//*[@data-ui-name=\"button_search_submit\"]"));
+        element.click();
+    }
+
+
+    @Then("Click on Attractions option")
+    public void clickOnCarRentalsOption() {
+        WebElement element = Base.driver.findElement(By.xpath(("(//*[@class=\"fc63351294 fa030f4cc2 d4e373d880\"])[3]")));
+        element.click();
+    }
+
+    @Then("Click on Select your dates field")
+    public void clickOnSelectYourDatesField() {
+        WebElement element = Base.driver.findElement(By.xpath(("(//*[@class=\"css-ck8kih\"])")));
+        //WebElement element = Base.driver.findElement(By.xpath(("(//*[@class=\"b6dc9a9e69 css-1udhgk3 e6c50852bd b8c9de5937\"])")));
+        element.click();
+    }
+
+    @Then("Click on Search button by class")
+    public void clickOnSearchButton1() {
+        WebElement element = Base.driver.findElement(By.xpath("(//*[@class=\"e57ffa4eb5\"])[5]"));
+        //WebElement element = Base.driver.findElement(By.xpath("//*[@class=\"fc63351294 a822bdf511 d4b6b7a9e7 cfb238afa1 c334e6f658 f4605622ad css-1c2wgyo\"]"));
+        //WebElement element = Base.driver.findElement(By.xpath("(//*[@class=\"f9cf783bde\"])[4]"));
+        //WebElement element = Base.driver.findElement(By.className("fc63351294 a822bdf511 d4b6b7a9e7 cfb238afa1 c938084447 f4605622ad aa11d0d5cd"));
         element.click();
     }
 }
