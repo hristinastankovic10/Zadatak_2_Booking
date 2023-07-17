@@ -124,7 +124,7 @@ public class MySteps {
     }
 
     @Then("Click on Search button")
-    public void clickOnSearchButton(String value) {
+    public void clickOnSearchButton() {
         WebElement element = Base.driver.findElement(By.xpath("(//*[@class=\"f9cf783bde\"])[4]"));
         //WebElement element = Base.driver.findElement(By.className("fc63351294 a822bdf511 d4b6b7a9e7 cfb238afa1 c938084447 f4605622ad aa11d0d5cd"));
         element.click();
